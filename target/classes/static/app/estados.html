@@ -107,10 +107,10 @@ function alterar(){
       xhttp.onreadystatechange = function(){
       if(this.readyState == 4 && this.status == 200){ 
         var dados = JSON.parse(this.responseText); 
-        var conteudo = "<tr> <th>ID</th> <th>Nome</th <th>Ações</th>    </tr>";        
+        var conteudo = "<tr> <th>ID</th> <th>Nome</th> <th>Ações</th>    </tr>";        
         for(var estado of dados){
-            conteudo += "<tr><td>" + estado.id + " </td> <td>"+ encodeURI(estado.nome) + "</td>";
-            conteudo += "<td> <button type='button' onclick=preencher('"+ estado.id +"','"+ decodeURI(estado.nome) +"')>Alterar</button>  ";    
+            conteudo += "<tr><td>" + estado.id + " </td> <td>"+ decodeURI(estado.nome) + "</td>";
+            conteudo += "<td> <button type='button' onclick=preencher('"+ estado.id +"','"+ encodeURI(estado.nome) +"')>Alterar</button>  ";    
             conteudo += "<button type='button' onclick='excluir("+ estado.id +")'>Excluir</button></td> </tr>";
         }   
         document.getElementById("listagem").innerHTML = conteudo;
